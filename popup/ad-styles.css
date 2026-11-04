@@ -1,0 +1,137 @@
+.ad-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+}
+.ad-modal.active {
+  display: flex;
+}
+.ad-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+}
+.ad-modal-content {
+  position: relative;
+  background: var(--panel);
+  border-radius: 12px;
+  width: 90%;
+  max-width: 320px;
+  max-height: 90%;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+}
+.ad-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.ad-modal-header h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+.ad-close {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0 4px;
+}
+.ad-close:hover {
+  color: var(--text-primary);
+}
+.ad-modal-body {
+  padding: 16px;
+  flex: 1;
+  overflow-y: auto;
+}
+.ad-container {
+  width: 100%;
+  height: 150px;
+  background: var(--bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.ad-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ad-text {
+  color: var(--text-secondary);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px;
+}
+.ad-timer {
+  margin-bottom: 12px;
+}
+#ad-timer-text {
+  font-size: 11px;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 6px;
+}
+.ad-progress {
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ad-progress-bar {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width 0.1s linear;
+}
+.ad-modal-footer {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--border);
+}
+.ad-click-btn {
+  flex: 1;
+  background: var(--panel);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.ad-click-btn:hover {
+  background: var(--hover);
+}
+.ad-skip-btn {
+  flex: 1;
+  background: var(--accent);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.ad-skip-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.ad-skip-btn:not(:disabled):hover {
+  opacity: 0.9;
+}

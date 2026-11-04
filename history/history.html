@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Downloader · History</title>
+    <link rel="stylesheet" href="history.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-header">
+        <div class="brand">
+          <img src="../assets/images/logo.png" alt="" width="40" height="40" class="brand-logo" />
+          <div>
+            <h1>Download history</h1>
+            <p>Everything saved by Video Downloader, stored locally.</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <button id="open-options" class="btn btn-ghost" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"
+              />
+            </svg>
+            Settings
+          </button>
+          <button id="export-history" class="btn btn-ghost" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v12" />
+              <path d="m7 11 5 5 5-5" />
+              <path d="M5 21h14" />
+            </svg>
+            Export
+          </button>
+          <button id="clear-history" class="btn btn-danger" type="button">Clear history</button>
+        </div>
+      </header>
+
+      <section class="stats" aria-label="Download statistics">
+        <div class="stat">
+          <span class="stat-label">Total</span>
+          <strong id="stat-total">0</strong>
+          <span class="stat-note">downloads recorded</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Completed</span>
+          <strong id="stat-complete">0</strong>
+          <span class="stat-note" id="stat-complete-note">nothing saved yet</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">On disk</span>
+          <strong id="stat-size">0 B</strong>
+          <span class="stat-note">from completed files</span>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Active</span>
+          <strong id="stat-active">0</strong>
+          <span class="stat-note">in progress right now</span>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="search-row">
+          <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7" />
+            <path d="m20 20-3.5-3.5" />
+          </svg>
+          <input
+            id="search"
+            type="search"
+            placeholder="Search by title, file name or site…"
+            autocomplete="off"
+            spellcheck="false"
+            aria-label="Search download history"
+          />
+        </div>
+        <div class="filters" role="group" aria-label="Filter by status">
+          <button type="button" class="chip is-active" data-filter="all">
+            All <span class="chip-count" id="count-all">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="complete">
+            Completed <span class="chip-count" id="count-complete">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="in_progress">
+            Active <span class="chip-count" id="count-progress">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="failed">
+            Failed <span class="chip-count" id="count-failed">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="cancelled">
+            Cancelled <span class="chip-count" id="count-cancelled">0</span>
+          </button>
+        </div>
+      </div>
+
+      <main id="list" class="list" aria-live="polite"></main>
+
+      <footer class="page-footer">
+        <span>Video Downloader <span id="version">1.1.0</span></span>
+        <span>Removing an entry does not delete the downloaded file.</span>
+      </footer>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="history.js"></script>
+  </body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Meet Video Downloader: a privacy-minded Chrome extension that finds media on web pages and saves supported video and audio files."
+    />
+    <meta name="theme-color" content="#080d18" />
+    <title>Video Downloader — Find it. Save it.</title>
+    <link rel="icon" href="../assets/icons/icon32.png" type="image/png" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="Video Downloader home">
+          <img src="../assets/icons/icon48.png" alt="" width="38" height="38" />
+          <span>Video<span class="brand-accent">Downloader</span></span>
+        </a>
+        <button
+          class="nav-toggle"
+          type="button"
+          aria-expanded="false"
+          aria-controls="nav-links"
+          aria-label="Open navigation"
+        >
+          <span></span><span></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#faq">FAQ</a>
+          <a href="./admin.html">Admin</a>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme">Light theme</button>
+          <a class="button button-small button-outline" href="#install">Install guide <span aria-hidden="true">↗</span></a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero container">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="status-dot"></span> Your browser, your downloads</div>
+          <h1>Find it.<br /><span class="text-gradient typing-text">Save it.</span></h1>
+          <p class="hero-lede">
+            Spot video and audio media on the pages you visit, choose an available
+            format, and keep supported files close at hand.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="./downloads/video-downloader-extension.zip" download="video-downloader-extension.zip">Download extension <span aria-hidden="true">↓</span></a>
+            <a class="text-link" href="#features">Explore features <span aria-hidden="true">↓</span></a>
+          </div>
+          <div class="hero-proof">
+            <span class="proof-icon" aria-hidden="true">◇</span>
+            <span>Media stays on your device</span>
+            <span class="proof-divider"></span>
+            <span>No account needed</span>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Preview of the Video Downloader media list">
+          <div class="visual-glow"></div>
+          <div class="app-window">
+            <div class="app-topbar">
+              <div class="app-brand">
+                <img src="../assets/icons/icon32.png" alt="" width="24" height="24" />
+                <span>Video Downloader</span>
+              </div>
+              <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            </div>
+            <div class="app-page">
+              <div class="page-overline">MEDIA FOUND ON</div>
+              <div class="page-title">example.com <span class="live-count">3 items</span></div>
+              <div class="mock-filters"><span class="selected">All&nbsp; 3</span><span>Video&nbsp; 2</span><span>Audio&nbsp; 1</span></div>
+              <article class="mock-card">
+                <div class="mock-thumb thumb-one"><span class="play-icon">▶</span><span class="thumb-label">VIDEO</span></div>
+                <div class="mock-details">
+                  <strong>Weekend highlights</strong>
+                  <span>MP4 · 1080p · 24.8 MB</span>
+                  <div class="mock-card-bottom"><span class="format-pill">1080p <b>MP4</b></span><span class="mini-download">↓</span></div>
+                </div>
+              </article>
+              <article class="mock-card">
+                <div class="mock-thumb thumb-two"><span class="play-icon">▶</span><span class="thumb-label">VIDEO</span></div>
+                <div class="mock-details">
+                  <strong>Behind the scenes</strong>
+                  <span>WEBM · 720p · Size: --</span>
+                  <div class="mock-card-bottom"><span class="format-pill">720p <b>WEBM</b></span><span class="mini-download">↓</span></div>
+                </div>
+              </article>
+              <div class="mock-history"><span class="history-check">✓</span> Downloads tracked in your history <span>↗</span></div>
+            </div>
+          </div>
+          <div class="floating-note"><span class="note-check">✓</span><span><b>Media detected</b><small>Ready to review</small></span></div>
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Product highlights">
+        <div class="container trust-items">
+          <div><span class="trust-symbol">⌕</span><span><b>Smart detection</b><small>DOM and network signals</small></span></div>
+          <div><span class="trust-symbol">▤</span><span><b>Format choices</b><small>See available quality options</small></span></div>
+          <div><span class="trust-symbol">◷</span><span><b>Download history</b><small>Progress and completed files</small></span></div>
+          <div><span class="trust-symbol">⌑</span><span><b>Local by design</b><small>Media remains in your browser</small></span></div>
+        </div>
+      </section>
+
+      <section class="section container" id="features">
+        <div class="section-heading">
+          <div class="eyebrow">MADE FOR THE WAY YOU BROWSE</div>
+          <h2>Everything you need.<br /><span class="muted-heading">Nothing you don’t.</span></h2>
+          <p>One lightweight extension to find media, understand your options, and manage supported downloads.</p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card feature-card-large">
+            <div class="feature-icon icon-purple">⌕</div>
+            <div class="feature-content">
+              <h3>Find media as you browse</h3>
+              <p>Combines page inspection and browser network observations to surface video and audio sources that a player loads.</p>
+              <div class="feature-tags"><span>Video</span><span>Audio</span><span>Streams</span></div>
+            </div>
+            <div class="feature-illustration detect-illustration" aria-hidden="true">
+              <span class="scan-line"></span><span class="scan-box"></span><i></i><i></i><i></i>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon icon-blue">▤</div>
+            <h3>Pick the format that fits</h3>
+            <p>Review detected quality and format choices before starting a supported direct-file download.</p>
+            <div class="quality-stack" aria-hidden="true"><span>1080p <b>MP4</b></span><span>720p <b>WEBM</b></span><span>480p <b>MP4</b></span></div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon icon-green">◷</div>
+            <h3>Keep downloads in view</h3>
+            <p>Follow progress in History, then open a finished file or find it in its folder.</p>
+            <div class="progress-preview" aria-hidden="true"><span><i></i></span><small>Download complete <b>100%</b></small></div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-icon icon-orange">⚙</div>
+            <h3>Make it yours</h3>
+            <p>Set your preferred quality, download folder, file naming pattern, and theme.</p>
+            <div class="setting-preview" aria-hidden="true"><span>Filename</span><b>{title} - {quality}</b><i>✓</i></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="workflow-section" id="how-it-works">
+        <div class="container workflow">
+          <div class="workflow-copy">
+            <div class="eyebrow">SIMPLE FROM THE START</div>
+            <h2>From page to file<br /><span class="text-gradient">in a few clicks.</span></h2>
+            <p>Open a page, let the extension scan, and choose from the media it can access.</p>
+            <a class="button button-primary" href="#install">See install steps <span aria-hidden="true">→</span></a>
+          </div>
+          <ol class="steps">
+            <li><span class="step-number">01</span><div><h3>Visit a page</h3><p>Open the page with the video or audio you want to inspect. Start playback if the media loads on demand.</p></div></li>
+            <li><span class="step-number">02</span><div><h3>Review what’s found</h3><p>Open Video Downloader to see titles, formats, and size information when available.</p></div></li>
+            <li><span class="step-number">03</span><div><h3>Save and track</h3><p>Download a supported direct file and follow its status in your download history.</p></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section install-section" id="install">
+        <div class="container install-layout">
+          <div class="install-copy">
+            <div class="eyebrow">QUICK SETUP</div>
+            <h2>Get up and running.</h2>
+            <p>Load the extension into Chrome or a compatible Chromium browser in a few steps.</p>
+            <a class="button button-primary install-download" href="./downloads/video-downloader-extension.zip" download="video-downloader-extension.zip">Download extension ZIP <span aria-hidden="true">↓</span></a>
+            <div class="install-requirement"><span>✓</span> Chrome 102 or newer <span class="requirement-sep">·</span> No build step</div>
+          </div>
+          <div class="install-card">
+            <ol>
+              <li><span>1</span><div><b>Open Extensions</b><p>Go to <code>chrome://extensions</code> in your browser.</p></div></li>
+              <li><span>2</span><div><b>Turn on Developer mode</b><p>Enable the switch near the top-right of the page.</p></div></li>
+              <li><span>3</span><div><b>Extract and load the folder</b><p>Extract the downloaded ZIP, choose “Load unpacked,” and select the folder containing <code>manifest.json</code>.</p></div></li>
+              <li><span>4</span><div><b>Pin and start browsing</b><p>Pin Video Downloader, open a media page, then click its toolbar icon.</p></div></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section limits-section container" id="faq">
+        <div class="section-heading section-heading-left">
+          <div class="eyebrow">GOOD TO KNOW</div>
+          <h2>Clear about what’s supported.</h2>
+          <p>Media websites work in different ways. Here’s what to expect.</p>
+        </div>
+        <div class="faq-list">
+          <label class="faq-search-label" for="faq-search">Search frequently asked questions</label>
+          <input id="faq-search" class="faq-search" type="search" placeholder="Try “YouTube” or “privacy”" autocomplete="off" />
+          <p id="faq-search-status" class="faq-search-status" aria-live="polite"></p>
+          <details>
+            <summary>Can it save every video it finds?<span></span></summary>
+            <p>No. Detection means a media source was found, not that it can be saved as one complete file. Direct progressive files are supported; some sources require special headers or player-specific access.</p>
+          </details>
+          <details>
+            <summary>What about HLS and DASH streams?<span></span></summary>
+            <p>The extension can identify these streams and show available variants, but it does not combine stream segments into a video file. It can save a playlist for use with a compatible media tool.</p>
+          </details>
+          <details>
+            <summary>Can I download YouTube videos here?<span></span></summary>
+            <p>No. YouTube detections do not offer direct download because requests may be separate audio/video tracks or partial data. Use YouTube’s built-in download option where available.</p>
+          </details>
+          <details>
+            <summary>Does the extension upload my media?<span></span></summary>
+            <p>No. Detection and download management run in your browser, and media files are not uploaded. If an administrator configures the optional website API, the extension sends anonymous aggregate ad events (impressions, completions, clicks, and credits used) for the website dashboard. See the <a href="./privacy.html">privacy notice</a>.</p>
+          </details>
+          <p class="copyright-note">Only save media you have the right to download. Follow the source website’s terms and applicable law.</p>
+        </div>
+      </section>
+
+      <section class="closing-cta">
+        <div class="container closing-inner">
+          <div><div class="eyebrow">YOUR NEXT WATCH, YOUR WAY</div><h2>Ready to find your media?</h2><p>Install the extension and see what your current page has to offer.</p></div>
+          <a class="button button-light" href="#install">Get started <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="cta-orb" aria-hidden="true"></div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <a class="brand footer-brand" href="#top">
+          <img src="../assets/icons/icon32.png" alt="" width="30" height="30" />
+          <span>Video<span class="brand-accent">Downloader</span></span>
+        </a>
+        <p>Made for a more straightforward way to manage media in your browser.</p>
+        <nav class="footer-links" aria-label="More information">
+          <a href="./releases.html">Release notes</a>
+          <a href="./privacy.html">Privacy</a>
+          <a href="./admin.html">Website admin</a>
+        </nav>
+        <span class="footer-copy">© <span id="year"></span> Video Downloader</span>
+      </div>
+    </footer>
+  </body>
+</html>

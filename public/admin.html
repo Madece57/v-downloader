@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Website administration for Video Downloader ads and aggregate usage statistics." />
+    <meta name="theme-color" content="#080d18" />
+    <title>Website admin — Video Downloader</title>
+    <link rel="icon" href="../assets/icons/icon32.png" type="image/png" />
+    <link rel="stylesheet" href="./admin.css" />
+    <script src="./admin.js" defer></script>
+  </head>
+  <body>
+    <header class="admin-header">
+      <a class="admin-brand" href="./index.html"><img src="../assets/icons/icon32.png" alt="" width="32" height="32" /> Video Downloader <span>Admin</span></a>
+      <a href="./index.html">← Product website</a>
+    </header>
+    <main class="admin-main">
+      <section id="connection-error" class="notice error" role="alert" hidden></section>
+      <section id="auth-panel" class="auth-panel" hidden>
+        <div class="eyebrow">WEBSITE SERVICES</div>
+        <h1 id="auth-title">Admin sign in</h1>
+        <p id="auth-description">Sign in to manage advertisements and view aggregate usage.</p>
+        <form id="login-form" class="form-card" hidden>
+          <label>Email<input name="email" type="email" maxlength="254" autocomplete="username" required /></label>
+          <label>Password<input name="password" type="password" maxlength="200" autocomplete="current-password" required /></label>
+          <button class="primary-button" type="submit">Sign in</button>
+        </form>
+        <form id="setup-form" class="form-card" hidden>
+          <p class="notice">Initial setup is enabled only while the server has no administrator. Enter the one-time setup token configured by the site operator.</p>
+          <label>One-time setup token<input name="setupToken" type="password" maxlength="500" autocomplete="off" required /></label>
+          <label>Administrator email<input name="email" type="email" maxlength="254" autocomplete="email" required /></label>
+          <label>Password <span class="field-hint">At least 12 characters</span><input name="password" type="password" minlength="12" maxlength="200" autocomplete="new-password" required /></label>
+          <button class="primary-button" type="submit">Create administrator</button>
+        </form>
+        <p id="auth-message" class="form-message" role="status" aria-live="polite"></p>
+      </section>
+
+      <section id="dashboard" hidden>
+        <div class="dashboard-heading">
+          <div><div class="eyebrow">WEBSITE SERVICES</div><h1>Admin dashboard</h1><p>Manage ad content and review aggregate totals across connected extension users.</p></div>
+          <button id="logout-button" class="secondary-button" type="button">Sign out</button>
+        </div>
+        <section class="stats-grid" aria-label="Aggregate usage statistics">
+          <article class="stat-card"><span>Ad impressions</span><strong id="stat-impressions">—</strong></article>
+          <article class="stat-card"><span>Completed views</span><strong id="stat-completions">—</strong></article>
+          <article class="stat-card"><span>Ad clicks</span><strong id="stat-clicks">—</strong></article>
+          <article class="stat-card"><span>Credits used</span><strong id="stat-credits">—</strong></article>
+        </section>
+        <p class="privacy-hint">These are aggregate counters only. The API does not associate an event with an extension account or media URL.</p>
+        <p id="dashboard-message" class="form-message" role="status" aria-live="polite"></p>
+
+        <div class="admin-columns">
+          <section class="panel">
+            <div class="panel-heading"><div><div class="eyebrow">CONTENT</div><h2>Advertisements</h2></div><button id="new-ad-button" class="secondary-button" type="button">New ad</button></div>
+            <p class="muted-copy">Active ads can appear in the extension’s credit flow. Image ads use an externally hosted image URL.</p>
+            <div id="ad-list" class="ad-list" aria-live="polite"></div>
+          </section>
+          <section class="panel">
+            <div class="eyebrow">AD MANAGEMENT</div><h2 id="ad-form-heading">Create an ad</h2>
+            <form id="ad-form">
+              <input name="id" type="hidden" />
+              <label>Title<input name="title" maxlength="180" required /></label>
+              <label>Description<textarea name="description" rows="3" maxlength="2000"></textarea></label>
+              <label>Ad type<select name="type"><option value="text">Text</option><option value="image">Image</option></select></label>
+              <label>Image URL <span class="field-hint">Required for image ads; use HTTPS</span><input name="imageUrl" type="url" maxlength="2048" placeholder="https://example.com/image.jpg" /></label>
+              <label>Click-through URL <span class="field-hint">Optional</span><input name="clickUrl" type="url" maxlength="2048" placeholder="https://example.com" /></label>
+              <label>Display time in seconds<input name="duration" type="number" min="1" max="60" value="5" required /></label>
+              <label class="checkbox-label"><input name="active" type="checkbox" checked /> Active</label>
+              <div class="form-actions"><button class="primary-button" type="submit">Save ad</button><button id="cancel-edit" class="secondary-button" type="button">Clear form</button></div>
+            </form>
+          </section>
+        </div>
+
+        <section class="panel password-panel">
+          <div class="eyebrow">ACCOUNT SECURITY</div><h2>Change password</h2>
+          <form id="password-form" class="password-form">
+            <label>Current password<input name="currentPassword" type="password" autocomplete="current-password" required /></label>
+            <label>New password <span class="field-hint">At least 12 characters</span><input name="newPassword" type="password" minlength="12" maxlength="200" autocomplete="new-password" required /></label>
+            <button class="secondary-button" type="submit">Update password</button>
+          </form>
+          <p id="password-message" class="form-message" role="status" aria-live="polite"></p>
+        </section>
+      </section>
+    </main>
+    <footer><a href="./privacy.html">Privacy notice</a><span>Video Downloader website services</span></footer>
+  </body>
+</html>

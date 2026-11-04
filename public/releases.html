@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Video Downloader product and extension release notes." />
+    <meta name="theme-color" content="#080d18" />
+    <title>Release notes — Video Downloader</title>
+    <link rel="icon" href="../assets/icons/icon32.png" type="image/png" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./info.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="./index.html"><img src="../assets/icons/icon48.png" alt="" width="38" height="38" /><span>Video<span class="brand-accent">Downloader</span></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+        <div class="nav-links" id="nav-links"><a href="./index.html#features">Features</a><a href="./privacy.html">Privacy</a><a href="./admin.html">Admin</a><a class="button button-small button-outline" href="./index.html#install">Install guide</a></div>
+      </nav>
+    </header>
+    <main class="info-main">
+      <div class="eyebrow">WHAT’S NEW</div>
+      <h1>Release notes</h1>
+      <article>
+        <h2>1.1.0 — Website services and admin</h2>
+        <p class="info-date">June 2026</p>
+        <ul>
+          <li>Moved advertisement management and aggregate usage statistics from the extension to the website admin dashboard.</li>
+          <li>Added a PHP/MySQL service for ad content, anonymous aggregate ad events, and credit usage counters.</li>
+          <li>Added website administrator first-time setup, sign-in, ad editing, dashboard totals, and password changes.</li>
+          <li>Added searchable FAQ, a theme toggle, this release notes page, and a privacy notice.</li>
+          <li>Added an extension setting for an optional website API endpoint. Media files and media URLs are not sent to it.</li>
+        </ul>
+      </article>
+      <article>
+        <h2>1.0.0 — Browser media detection</h2>
+        <ul>
+          <li>Detect media from page elements and observed network activity, with rescan and current-playback prioritization.</li>
+          <li>Show available format and size information, and manage supported downloads in local history.</li>
+          <li>Disable direct YouTube downloads when the detected resource may be an incomplete stream.</li>
+        </ul>
+      </article>
+      <p><a class="text-link" href="./index.html">← Back to Video Downloader</a></p>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="./index.html"><img src="../assets/icons/icon32.png" alt="" width="30" height="30" /><span>Video<span class="brand-accent">Downloader</span></span></a><p>Follow product changes and feature updates.</p><span class="footer-copy">© <span id="year"></span> Video Downloader</span></div></footer>
+  </body>
+</html>

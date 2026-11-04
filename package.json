@@ -1,0 +1,23 @@
+{
+  "name": "video-downloader-extension",
+  "version": "1.1.0",
+  "description": "Dependency-free Chrome extension (Manifest V3) that finds videos and audio on pages and downloads them.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node --check background/service-worker.js && node --check popup/popup.js && node --check options/options.js && node --check history/history.js && node --check content/content.js && node --check content/video-detector.js && node --check scripts/url-validator.js && node --check scripts/format-detector.js && node --check scripts/video-parser.js && node --check scripts/download-manager.js && node --check utils/constants.js && node --check utils/helpers.js && node --check utils/storage.js && node --check utils/messaging.js && node --check utils/activity.js && node --check public/index.js && node --check public/admin.js",
+    "lint": "eslint . --ext .js",
+    "test": "node --test tests/**/*.test.js",
+    "test:watch": "node --test --watch tests/**/*.test.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "keywords": [
+    "chrome-extension",
+    "video-downloader",
+    "media-downloader",
+    "manifest-v3"
+  ],
+  "license": "MIT"
+}

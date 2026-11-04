@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Downloader · Settings</title>
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="page-header">
+        <div class="brand">
+          <img src="../assets/images/logo.png" alt="" width="40" height="40" class="brand-logo" />
+          <div>
+            <h1>Video Downloader</h1>
+            <p>Settings &amp; preferences</p>
+          </div>
+        </div>
+        <div class="header-actions">
+          <span id="save-status" class="save-status" role="status" aria-live="polite">Saved</span>
+          <button id="open-history" class="btn btn-ghost" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8v4l3 2" />
+              <path d="M3.05 11a9 9 0 1 1 .5 4" />
+              <path d="M3 4v5h5" />
+            </svg>
+            Download history
+          </button>
+        </div>
+      </header>
+
+      <div id="welcome" class="welcome" hidden>
+        <div class="welcome-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m5 12 5 5L20 7" />
+          </svg>
+        </div>
+        <div class="welcome-copy">
+          <h2>You're ready to go</h2>
+          <p>
+            Click the toolbar icon on any page to see detected media. Pin the extension
+            for quick access, or right-click it to manage shortcuts.
+          </p>
+        </div>
+        <button id="dismiss-welcome" class="icon-button" type="button" aria-label="Dismiss">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m6 6 12 12M18 6 6 18" />
+          </svg>
+        </button>
+      </div>
+
+      <main class="main">
+        <section class="panel" aria-labelledby="detection-heading">
+          <div class="panel-heading">
+            <h2 id="detection-heading">Detection</h2>
+            <p>Control how the extension finds media on the pages you visit.</p>
+          </div>
+
+          <div class="rows">
+            <div class="row">
+              <div class="row-text">
+                <label for="auto-detect">Detect media automatically</label>
+                <p>Report video and audio elements to the extension as pages load.</p>
+              </div>
+              <label class="switch">
+                <input id="auto-detect" type="checkbox" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <span class="visually-hidden">Detect media automatically</span>
+              </label>
+            </div>
+
+            <div class="row">
+              <div class="row-text">
+                <label for="show-overlay">Show floating media indicator</label>
+                <p>A small dismissible pill appears when media is found on a page.</p>
+              </div>
+              <label class="switch">
+                <input id="show-overlay" type="checkbox" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <span class="visually-hidden">Show floating media indicator</span>
+              </label>
+            </div>
+
+            <div class="row">
+              <div class="row-text">
+                <label for="show-badge">Show count badge on the toolbar icon</label>
+                <p>Displays how many media items were detected in the active tab.</p>
+              </div>
+              <label class="switch">
+                <input id="show-badge" type="checkbox" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <span class="visually-hidden">Show count badge on the toolbar icon</span>
+              </label>
+            </div>
+
+            <div class="row">
+              <div class="row-text">
+                <label for="notify-complete">Notify when a download finishes</label>
+                <p>Shows a desktop notification after a file is saved.</p>
+              </div>
+              <label class="switch">
+                <input id="notify-complete" type="checkbox" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <span class="visually-hidden">Notify when a download finishes</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="downloads-heading">
+          <div class="panel-heading">
+            <h2 id="downloads-heading">Downloads</h2>
+            <p>Choose where files are saved and how they are named.</p>
+          </div>
+
+          <div class="fields">
+            <div class="field">
+              <label for="download-folder">Download folder</label>
+              <p class="hint">A subfolder inside your browser's Downloads directory.</p>
+              <div class="input-group">
+                <span class="input-prefix">Downloads&nbsp;/</span>
+                <input
+                  id="download-folder"
+                  type="text"
+                  placeholder="Video Downloader"
+                  maxlength="120"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="filename-template">File name template</label>
+              <p class="hint">The file extension is added automatically.</p>
+              <input
+                id="filename-template"
+                type="text"
+                maxlength="140"
+                autocomplete="off"
+                spellcheck="false"
+              />
+              <div class="tokens" aria-label="Available template tokens">
+                <button type="button" class="token" data-token="{title}">title</button>
+                <button type="button" class="token" data-token="{quality}">quality</button>
+                <button type="button" class="token" data-token="{format}">format</button>
+                <button type="button" class="token" data-token="{ext}">ext</button>
+                <button type="button" class="token" data-token="{domain}">domain</button>
+                <button type="button" class="token" data-token="{date}">date</button>
+                <button type="button" class="token" data-token="{time}">time</button>
+              </div>
+              <div class="preview" aria-live="polite">
+                <span class="preview-label">Preview</span>
+                <code id="filename-preview">Video Downloader/sample.mp4</code>
+              </div>
+            </div>
+
+            <div class="field-grid">
+              <div class="field">
+                <label for="default-quality">Default quality</label>
+                <select id="default-quality"></select>
+              </div>
+
+              <div class="field">
+                <label for="preferred-format">Preferred format</label>
+                <select id="preferred-format"></select>
+              </div>
+            </div>
+
+            <div class="row row-plain">
+              <div class="row-text">
+                <label for="ask-where">Ask where to save each file</label>
+                <p>Shows the system save dialog for every download.</p>
+              </div>
+              <label class="switch">
+                <input id="ask-where" type="checkbox" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <span class="visually-hidden">Ask where to save each file</span>
+              </label>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="appearance-heading">
+          <div class="panel-heading">
+            <h2 id="appearance-heading">Appearance</h2>
+            <p>Pick a theme for the popup, history and settings pages.</p>
+          </div>
+
+          <div class="segmented" role="radiogroup" aria-label="Theme">
+            <label>
+              <input type="radio" name="theme" value="system" />
+              <span>System</span>
+            </label>
+            <label>
+              <input type="radio" name="theme" value="light" />
+              <span>Light</span>
+            </label>
+            <label>
+              <input type="radio" name="theme" value="dark" />
+              <span>Dark</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="data-heading">
+          <div class="panel-heading">
+            <h2 id="data-heading">Data &amp; privacy</h2>
+            <p>Everything is stored locally in your browser. No data is sent anywhere.</p>
+          </div>
+
+          <div class="data-row">
+            <div class="data-copy">
+              <strong>Download history</strong>
+              <p id="history-summary">No downloads recorded.</p>
+            </div>
+            <div class="data-actions">
+              <button id="open-history-data" class="btn btn-ghost" type="button">View history</button>
+              <button id="clear-history" class="btn btn-danger" type="button">Clear history</button>
+            </div>
+          </div>
+
+          <div class="field history-limit">
+            <label for="history-limit">History entries to keep</label>
+            <p class="hint">Older entries are removed automatically. Between 20 and 1000.</p>
+            <input id="history-limit" type="number" min="20" max="1000" step="10" />
+          </div>
+
+          <div class="data-row reset-row">
+            <div class="data-copy">
+              <strong>Reset settings</strong>
+              <p>Restore every option on this page to its default value.</p>
+            </div>
+            <div class="data-actions">
+              <button id="reset-settings" class="btn btn-danger" type="button">Reset to defaults</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="support-heading">
+          <div class="panel-heading">
+            <h2 id="support-heading">Support</h2>
+            <p>Choose the support page shown in the popup.</p>
+          </div>
+          <div class="fields">
+            <div class="field">
+              <label for="support-url">Support URL</label>
+              <p class="hint">Use a web address beginning with https:// or http://.</p>
+              <input
+                id="support-url"
+                type="url"
+                maxlength="500"
+                autocomplete="url"
+                spellcheck="false"
+              />
+              <a id="support-preview" class="support-preview" href="https://www.buymeacoffee.com/" target="_blank" rel="noopener noreferrer">
+                Open support page
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel" aria-labelledby="ad-api-heading">
+          <div class="panel-heading">
+            <h2 id="ad-api-heading">Website services</h2>
+            <p>Connect ad credits to the website’s PHP API.</p>
+          </div>
+          <div class="fields">
+            <div class="field">
+              <label for="ad-api-url">Ad API URL</label>
+              <p class="hint">Enter the full HTTPS URL to the website API endpoint, for example https://example.com/api/index.php. This is required to fetch ads and report aggregate ad and credits-used totals. Media files and media URLs are not sent. Leave blank to disable these website services.</p>
+              <input id="ad-api-url" type="url" maxlength="500" autocomplete="url" spellcheck="false" placeholder="https://example.com/api/index.php" />
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <footer class="page-footer">
+        <span>Video Downloader <span id="version">1.1.0</span></span>
+        <span>Direct files only · HLS/DASH require VLC, ffmpeg or yt-dlp</span>
+      </footer>
+    </div>
+
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

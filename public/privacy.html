@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Privacy information for Video Downloader and its optional website services." />
+    <meta name="theme-color" content="#080d18" />
+    <title>Privacy — Video Downloader</title>
+    <link rel="icon" href="../assets/icons/icon32.png" type="image/png" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./info.css" />
+    <script src="./index.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav container" aria-label="Main navigation">
+        <a class="brand" href="./index.html"><img src="../assets/icons/icon48.png" alt="" width="38" height="38" /><span>Video<span class="brand-accent">Downloader</span></span></a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+        <div class="nav-links" id="nav-links"><a href="./index.html#features">Features</a><a href="./releases.html">Release notes</a><a href="./admin.html">Admin</a><a class="button button-small button-outline" href="./index.html#install">Install guide</a></div>
+      </nav>
+    </header>
+    <main class="info-main">
+      <div class="eyebrow">YOUR DATA, EXPLAINED</div>
+      <h1>Privacy notice</h1>
+      <p class="info-date">Last updated: June 2026</p>
+      <p>Video Downloader is a browser extension for finding and managing media sources. Media detection and download history are handled in your browser. The extension does not upload the video or audio files it finds or downloads.</p>
+      <div class="info-callout"><strong>Optional website connection:</strong> if a site administrator configures the Ad API URL in extension Settings, the extension contacts that API to retrieve active ad content and send aggregate ad and credit counters. If no API URL is configured, those website services are not available.</div>
+      <h2>Information stored on your device</h2>
+      <ul>
+        <li>Extension preferences, detected media metadata, download history, and ad unlock/credit state are stored in browser extension storage.</li>
+        <li>Detected media metadata can include page and media URLs, titles, formats, and size information. It is not sent to the website API.</li>
+      </ul>
+      <h2>Optional aggregate events</h2>
+      <p>When the website API is configured, the extension can send counts for ad impressions, completed ad views, ad clicks, and credits used. These event requests do not include media URLs, page URLs, download filenames, or an extension account identifier. The API stores aggregate counters for the administrator dashboard.</p>
+      <p>The website operator’s hosting provider may record ordinary server access or error logs, which can include network information such as an IP address and request time. The operator controls the server, database, log retention, and any privacy obligations for that deployment.</p>
+      <h2>Website administrator information</h2>
+      <p>The optional website admin service stores an administrator email address, a password hash (not the password), advertisement content and aggregate event totals. Admin login uses a server-side session cookie. The MySQL server and its backups are controlled by the website operator.</p>
+      <h2>Third-party websites</h2>
+      <p>Browsing and downloading media involves requests to the source website and its content delivery providers. Their own privacy policies and terms apply. Video Downloader does not control those services.</p>
+      <h2>Choices and contact</h2>
+      <p>You can leave the Ad API URL blank or remove it in extension Settings to stop optional website API requests. You can clear the extension’s local download history in Settings. Contact the operator of the website hosting this copy for questions about its server-side data.</p>
+    </main>
+    <footer class="site-footer"><div class="container footer-inner"><a class="brand footer-brand" href="./index.html"><img src="../assets/icons/icon32.png" alt="" width="30" height="30" /><span>Video<span class="brand-accent">Downloader</span></span></a><p>Media stays on your device; optional aggregate service events are documented above.</p><span class="footer-copy">© <span id="year"></span> Video Downloader</span></div></footer>
+  </body>
+</html>

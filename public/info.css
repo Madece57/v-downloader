@@ -1,0 +1,9 @@
+.info-main { width: min(820px, calc(100% - 40px)); min-height: 65vh; margin: 0 auto; padding: 70px 0 90px; }
+.info-main .eyebrow { margin-bottom: 12px; }
+.info-main h1 { margin-bottom: 15px; font-size: clamp(38px, 7vw, 58px); letter-spacing: -.06em; line-height: 1.08; }
+.info-main h2 { margin: 34px 0 8px; font-size: 21px; }
+.info-main p, .info-main li { color: var(--muted); font-size: 14px; line-height: 1.8; }
+.info-main ul { padding-left: 22px; }
+.info-main .info-date { color: var(--subtle); font-size: 12px; }
+.info-callout { padding: 18px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+@media (max-width: 700px) { .info-main { padding-top: 48px; } }

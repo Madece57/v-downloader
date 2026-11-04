@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Video Downloader</title>
+    <link rel="stylesheet" href="popup.css" />
+    <link rel="stylesheet" href="ad-styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">
+          <img class="brand-logo" src="../assets/images/logo.png" alt="" width="30" height="30" />
+          <div class="brand-copy">
+            <h1>Video Downloader</h1>
+            <p id="page-domain">Detecting media…</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button
+            id="credits-display"
+            class="credits-display"
+            type="button"
+            title="Available downloads"
+            aria-label="Available downloads"
+            aria-busy="true"
+          >
+            <span aria-hidden="true">🎬</span>
+            <span class="credits-label">Credits</span>
+            <span id="credits-count" class="credits-count" aria-live="polite">Loading</span>
+          </button>
+          <button
+            id="open-history"
+            class="icon-button"
+            type="button"
+            title="Download history"
+            aria-label="Download history"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8v4l3 2" />
+              <path d="M3.05 11a9 9 0 1 1 .5 4" />
+              <path d="M3 4v5h5" />
+            </svg>
+          </button>
+          <button
+            id="open-options"
+            class="icon-button"
+            type="button"
+            title="Settings"
+            aria-label="Settings"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.7 1.7 0 0 0-1.87-.34 1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09a1.7 1.7 0 0 0-1.11-1.55 1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.7 1.7 0 0 0 .34-1.87 1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09a1.7 1.7 0 0 0 1.55-1.11 1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.7 1.7 0 0 0 1.87.34H9a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.7 1.7 0 0 0-.34 1.87V9a1.7 1.7 0 0 0 1.55 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </header>
+
+      <section class="page-header" aria-live="polite">
+        <h2 id="page-title">Scanning this page…</h2>
+        <div class="page-meta">
+          <span id="summary-count">Looking for video and audio…</span>
+          <span class="meta-sep" aria-hidden="true">•</span>
+          <span id="page-url" class="page-url"></span>
+        </div>
+      </section>
+
+      <div class="toolbar">
+        <div class="filters" role="group" aria-label="Filter detected media">
+          <button type="button" class="chip is-active" data-filter="all">
+            All <span class="chip-count" id="count-all">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="video">
+            Video <span class="chip-count" id="count-video">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="audio">
+            Audio <span class="chip-count" id="count-audio">0</span>
+          </button>
+          <button type="button" class="chip" data-filter="stream">
+            Streams <span class="chip-count" id="count-stream">0</span>
+          </button>
+        </div>
+        <button id="refresh" class="icon-button refresh-button" type="button" title="Rescan page" aria-label="Rescan page">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+            <path d="M21 3v6h-6" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="search-row">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" />
+          <path d="m20 20-3.5-3.5" />
+        </svg>
+        <input
+          id="search"
+          type="search"
+          placeholder="Search detected media…"
+          autocomplete="off"
+          spellcheck="false"
+          aria-label="Search detected media"
+        />
+      </div>
+
+      <main id="content" class="content" aria-live="polite"></main>
+
+      <footer class="footer">
+        <div class="footer-actions">
+          <button id="copy-page-url" class="footer-link" type="button" disabled>
+            Copy page URL for yt-dlp
+          </button>
+          <a id="support-link" class="footer-link" href="https://www.buymeacoffee.com/" target="_blank" rel="noopener noreferrer">
+            Buy Me a Coffee
+          </a>
+        </div>
+        <div class="footer-notes">
+          <span class="privacy-note">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="11" rx="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg>
+            Media stays on this device
+          </span>
+          <span class="footer-hint">Direct files only · HLS/DASH need VLC or yt-dlp</span>
+        </div>
+      </footer>
+    </div>
+
+    <div id="ad-modal" class="ad-modal" role="dialog" aria-modal="true" aria-labelledby="ad-title">
+      <div class="ad-modal-backdrop"></div>
+      <div class="ad-modal-content">
+        <div class="ad-modal-header">
+          <h3 id="ad-title">Advertisement</h3>
+          <button id="ad-close" class="ad-close" aria-label="Close ad">×</button>
+        </div>
+        <div class="ad-modal-body">
+          <div id="ad-container" class="ad-container">
+            <img id="ad-image" class="ad-image" src="" alt="Advertisement" style="display:none" />
+            <div id="ad-text" class="ad-text"></div>
+          </div>
+          <div class="ad-timer">
+            <span id="ad-timer-text">Watch ad to continue...</span>
+            <div class="ad-progress">
+              <div id="ad-progress-bar" class="ad-progress-bar"></div>
+            </div>
+          </div>
+        </div>
+        <div class="ad-modal-footer">
+          <button id="ad-click" class="ad-click-btn" type="button">Learn More</button>
+          <button id="ad-skip" class="ad-skip-btn" type="button" disabled>Skip in <span id="ad-countdown">5</span>s</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
